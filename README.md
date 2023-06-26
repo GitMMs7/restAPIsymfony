@@ -1,6 +1,6 @@
 # Symfony Rest API
 > Projekt API wętpnie do obsługi komunikacji z bazą dla aplikacji produkty
-> Live demo [_here_](https://crm.mateusz.devteam.net.pl/). 
+> brak .env brak fabryk brak generatora tabel wybagane utworzenie tabel dla obu typów uzytkowników
 
 <p>
     <img width="90" src="./img/php-logo.svg" >
