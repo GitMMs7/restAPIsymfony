@@ -1,0 +1,57 @@
+get_one_product:
+  path: /get/produkt/{id}
+  controller: App\Controller\ProductController::getOne
+  methods:    GET
+
+get_all_product:
+  path: /get/produkty
+  controller: App\Controller\ProductController::getAll
+  methods:    GET
+  
+one_add:
+  path: /auth/add/produkt
+  controller: App\Controller\ProductController::addOne
+  methods:    POST
+  
+content_update:
+  path: /auth/update/content/produkt/{id}
+  controller: App\Controller\ProductController::updateContent
+  methods:    PUT
+  
+name_update:
+  path: /auth/update/name/produkt/{id}
+  controller: App\Controller\ProductController::updateName
+  methods:    PUT
+  
+grupa_update:
+  path: /auth/update/grupa/produkt/{id}
+  controller: App\Controller\ProductController::updateGrupa
+  methods:    PUT
+  
+all_update:
+  path: /auth/update/produkt/{id}
+  controller: App\Controller\ProductController::updateAll
+  methods:    PUT
+
+one_delete:
+  path: /auth/delete/produkt/{id}
+  controller: App\Controller\ProductController::deleteOne
+  methods:    DELETE
+  
+register:
+  path: /admin/register
+  controller: App\Controller\AuthController::register
+  methods: POST
+  
+user_delete:
+  path: admin/delete/users/{id}
+  controller: App\Controller\AuthController::deleteUserOne
+  methods: DELETE
+
+api_login_check:
+  path: /auth/login_check
+  methods: POST
+  
+api_login_check2:
+  path: /admin/login_check
+  methods: POST

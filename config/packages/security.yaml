@@ -1,0 +1,52 @@
+security:
+    enable_authenticator_manager: true
+    encoders:
+        App\Entity\User:
+            algorithm: bcrypt
+        App\Entity\Adminuser:
+            algorithm: bcrypt
+    providers:
+        jwt:
+            lexik_jwt: ~
+        users:
+            entity:
+                class: App\Entity\User
+                property: username
+        adminuser:
+            entity:
+                class: App\Entity\Adminuser
+                property: username
+    firewalls:
+        login:
+            pattern: ^/auth/login
+            stateless: true
+            anonymous: false
+            json_login: # or form_login
+                provider: users
+                check_path: /auth/login_check  #same as the configured route
+                success_handler: lexik_jwt_authentication.handler.authentication_success
+                failure_handler: lexik_jwt_authentication.handler.authentication_failure
+                require_previous_session: false
+        admin:
+            pattern: ^/admin/login
+            stateless: true
+            anonymous: false
+            json_login: # for admin login
+                provider: adminuser
+                check_path: /admin/login_check
+                success_handler: lexik_jwt_authentication.handler.authentication_success
+                failure_handler: lexik_jwt_authentication.handler.authentication_failure
+                require_previous_session: false
+        api:
+            provider: jwt
+            pattern:   ^/auth
+            stateless: true
+            guard:
+                authenticators:
+                    - lexik_jwt_authentication.jwt_token_authenticator
+    
+    access_control:
+        - { path: ^/auth/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/admin/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/auth, roles: IS_AUTHENTICATED_FULLY }
+        - { path: ^/admin, roles: IS_AUTHENTICATED_FULLY }

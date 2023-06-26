@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="41f699d6-c5db-4946-a024-40a7814060e5" name="restapi" url="http://restapi.devteam.net.pl">
+        <fileTransfer rootFolder="/home/restapi/restapi.devteam.net.pl" accessType="SFTP" host="192.168.8.221" port="22" sshConfigId="202a0ad9-eaff-4948-9df5-77e59167fef2" sshConfig="restapi@192.168.8.221:22:22 password">
+          <advancedOptions>
+            <advancedOptions controlEncoding="utf-8" dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
